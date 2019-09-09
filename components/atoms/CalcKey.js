@@ -4,6 +4,6 @@ import * as colors from "../../styles/colors";
 
 export const CalcKey = styled.Text`
   align-self: center;
-  color: ${colors.mainColor};
+  color: ${props => props.isConvert ? "white" :colors.mainColor};
   font-weight: 500;  
 `;

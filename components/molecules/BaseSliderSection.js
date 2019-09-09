@@ -6,7 +6,7 @@ import { SliderWrapper } from "../atoms/SlliderWrapper";
 import { BaseButtonText } from "../atoms/BaseButtonText";
 import { SliderContainer } from "../atoms/SliderContainer";
 
-export const BaseSliderSection = ({ baseValues, baseTypeText }) => {
+export const BaseSliderSection = ({ baseValues, baseTypeText, selectedBase, onSelectBase }) => {
   return (
     <SliderContainer>
       <ConvertContainer>
@@ -14,8 +14,8 @@ export const BaseSliderSection = ({ baseValues, baseTypeText }) => {
       </ConvertContainer>
       <SliderWrapper showsHorizontalScrollIndicator={false} horizontal={true}>
         {baseValues.map(value => (
-          <BaseButton key={value}>
-            <BaseButtonText>{value}</BaseButtonText>
+          <BaseButton activeOpacity={.9} onPress={onSelectBase(value)} selectedBase={selectedBase == value} key={value}>
+            <BaseButtonText selectedBase={selectedBase == value}>{value}</BaseButtonText>
           </BaseButton>
         ))}
       </SliderWrapper>
